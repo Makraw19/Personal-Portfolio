@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MD Sheikh Abdullah — Sr. QA Engineer · Sydney</title>
+  <meta name="description" content="Sr. Quality Assurance Engineer at Tensis. SmartBear Certified TestComplete Architect. Based in Sydney." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      --accent: #8b5cf6;
+      --accent-soft: rgba(139,92,246,0.18);
+      --green: #10b981;
+    }
+    html[data-theme="dark"] {
+      --bg: #0e0b14; --surface: #17121f; --text: #f4f0ea;
+      --muted: rgba(244,240,234,0.55); --faint: rgba(244,240,234,0.1);
+    }
+    html[data-theme="light"] {
+      --bg: #faf8f5; --surface: #ffffff; --text: #14101a;
+      --muted: rgba(20,16,26,0.55); --faint: rgba(20,16,26,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.5; scroll-behavior: smooth; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    em { font-style: italic; color: var(--accent); }
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* NAV */
+    nav.top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px; border-bottom: 1px solid var(--faint);
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    }
+    .brand { display: flex; align-items: center; gap: 8px; font-family: var(--serif); font-size: 22px; font-weight: 500; }
+    .brand .mark { color: var(--accent); font-size: 18px; }
+    .nav-links { display: flex; gap: 32px; font-size: 14px; }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,0.2); }
+    .status-text { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .theme-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--faint); background: transparent; color: var(--text); cursor: pointer; font-size: 14px; }
+    .theme-btn:hover { border-color: var(--accent); }
+    .resume-btn { padding: 9px 18px; border-radius: 999px; border: none; background: var(--text); color: var(--bg); font-size: 13px; font-weight: 500; cursor: pointer; }
+
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; padding: 96px 64px 72px; align-items: center; }
+    .hero-left { max-width: 720px; }
+    .eyebrow-row { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+    .eyebrow-line { width: 40px; height: 1px; background: var(--accent); }
+    .eyebrow { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    h1.title { font-family: var(--serif); font-size: 92px; line-height: 0.98; font-weight: 400; letter-spacing: -0.02em; margin: 0 0 28px; }
+    .dek { font-size: 17px; color: var(--muted); line-height: 1.6; max-width: 600px; margin-bottom: 40px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-top: 32px; border-top: 1px solid var(--faint); }
+    .metric-num { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .metric-num .suffix { color: var(--accent); }
+    .metric-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .cta-row { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
+    .btn { padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; transition: transform 0.15s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-ghost { border: 1px solid var(--faint); color: var(--text); background: transparent; }
+    .btn-ghost:hover { border-color: var(--accent); }
+    .hero-art { aspect-ratio: 0.8; max-height: 560px; min-height: 400px; }
+    .hero-art svg { width: 100%; height: 100%; display: block; }
+
+    /* MARQUEE */
+    .marquee { overflow: hidden; padding: 32px 0; border-top: 1px solid var(--faint); border-bottom: 1px solid var(--faint); font-family: var(--serif); font-size: 24px; white-space: nowrap; }
+    .marquee-track { display: inline-block; color: var(--muted); animation: marquee 40s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item { margin: 0 8px; }
+    .marquee-item .dot { color: var(--accent); opacity: 0.4; margin: 0 24px; }
+
+    /* SECTIONS */
+    section.sect { padding: 96px 64px; border-top: 1px solid var(--faint); }
+    .sect-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 48px; flex-wrap: wrap; gap: 16px; }
+    .sect-num { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+    h2.sect-title { font-family: var(--serif); font-size: 56px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em; margin: 0; }
+    h2.sect-title-sm { font-family: var(--serif); font-size: 40px; line-height: 1.1; font-weight: 400; letter-spacing: -0.02em; margin: 0 0 48px; }
+    .sect-link { color: var(--accent); font-size: 14px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .para { font-size: 17px; line-height: 1.6; color: var(--muted); margin-bottom: 20px; }
+    .para strong { color: var(--text); font-weight: 500; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .tag { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--faint); font-size: 12px; color: var(--text); font-family: var(--mono); }
+
+    /* CASES */
+    .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .case-card { display: flex; flex-direction: column; background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--faint); color: inherit; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .case-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .case-art { aspect-ratio: 3/2; display: flex; align-items: center; justify-content: center; }
+    .case-body { padding: 24px 24px 28px; }
+    .case-tag { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .case-title { font-family: var(--serif); font-size: 24px; line-height: 1.2; font-weight: 400; margin-bottom: 20px; letter-spacing: -0.01em; color: var(--text); }
+    .case-foot { display: flex; justify-content: space-between; align-items: center; }
+    .case-meta { font-size: 12px; color: var(--muted); }
+    .case-arrow { color: var(--accent); font-size: 18px; }
+
+    /* CERTS */
+    .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .cert-card { padding: 24px 22px; background: var(--surface); border-radius: 14px; border: 1px solid var(--faint); position: relative; display: flex; flex-direction: column; gap: 10px; }
+    .cert-featured { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+    .cert-ribbon { position: absolute; top: 12px; right: 14px; color: var(--accent); font-size: 14px; }
+    .cert-issuer { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .cert-name { font-family: var(--serif); font-size: 19px; line-height: 1.2; font-weight: 400; letter-spacing: -0.005em; min-height: 46px; }
+    .cert-year { font-size: 11px; color: var(--muted); margin-top: auto; padding-top: 14px; border-top: 1px solid var(--faint); }
+
+    /* TIMELINE */
+    .exp-row { display: grid; grid-template-columns: 180px 1fr; gap: 48px; padding: 32px 0; border-top: 1px solid var(--faint); }
+    .exp-row:last-child { border-bottom: 1px solid var(--faint); }
+    .exp-year { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 6px; }
+    .exp-role { font-family: var(--serif); font-size: 28px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .exp-co { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-size: 14px; flex-wrap: wrap; }
+    .exp-co-name { color: var(--accent); font-weight: 500; }
+    .exp-co .sep { color: var(--muted); }
+    .exp-co .loc { color: var(--muted); }
+    .exp-blurb { font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 680px; }
+
+    /* EDU */
+    .edu-row { display: grid; grid-template-columns: 180px 1fr; gap: 48px; padding: 24px 0; border-top: 1px solid var(--faint); border-bottom: 1px solid var(--faint); }
+    .edu-year { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 4px; }
+    .edu-school { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .edu-degree { font-size: 14px; color: var(--muted); }
+
+    /* TESTIMONIALS */
+    .quote-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .quote { padding: 32px; background: var(--surface); border-radius: 16px; border: 1px solid var(--faint); margin: 0; }
+    .quote-mark { font-family: var(--serif); font-size: 80px; color: var(--accent); line-height: 0.6; margin-bottom: 20px; font-style: italic; }
+    .quote-text { font-family: var(--serif); font-size: 20px; line-height: 1.4; font-weight: 400; margin-bottom: 24px; color: var(--text); }
+    .quote-cap { display: flex; align-items: center; gap: 12px; }
+    .quote-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; }
+    .quote-name { font-size: 14px; font-weight: 500; }
+    .quote-role { font-size: 12px; color: var(--muted); }
+
+    /* CONTACT */
+    .contact { padding: 128px 64px; border-top: 1px solid var(--faint); }
+    .contact-title { font-family: var(--serif); font-size: 96px; line-height: 1; font-weight: 400; letter-spacing: -0.02em; margin: 0 0 48px; }
+    .contact-ctas { display: flex; gap: 14px; margin-bottom: 48px; flex-wrap: wrap; }
+    .contact-socials { display: flex; gap: 32px; padding-top: 32px; border-top: 1px solid var(--faint); flex-wrap: wrap; }
+    .social-link { font-size: 14px; color: var(--muted); }
+    .social-link:hover { color: var(--accent); }
+
+    footer.site { padding: 32px 64px; display: flex; align-items: center; gap: 16px; border-top: 1px solid var(--faint); font-family: var(--mono); font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+    footer.site .dot { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; padding: 56px 32px 48px; gap: 32px; }
+      .hero-art { max-height: 400px; order: -1; min-height: 280px; }
+      h1.title { font-size: 68px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .case-grid { grid-template-columns: repeat(2, 1fr); }
+      .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      nav.top { padding: 14px 20px; flex-wrap: wrap; gap: 10px; }
+      .nav-links { display: none; }
+      .nav-actions { gap: 8px; }
+      .status-text { display: none; }
+      .hero { padding: 40px 20px 32px; }
+      h1.title { font-size: 48px; line-height: 1.0; }
+      .dek { font-size: 15px; margin-bottom: 28px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .metric-num { font-size: 36px; }
+      .hero-art { min-height: 200px; max-height: 260px; }
+      .marquee { font-size: 18px; padding: 20px 0; }
+      section.sect { padding: 56px 20px; }
+      .sect-head { margin-bottom: 32px; }
+      h2.sect-title { font-size: 34px; }
+      h2.sect-title-sm { font-size: 26px; margin-bottom: 28px; }
+      .para { font-size: 15px; }
+      .case-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .cert-name { min-height: 0; }
+      .exp-row, .edu-row { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+      .exp-year, .edu-year { font-size: 11px; }
+      .exp-role { font-size: 22px; }
+      .edu-school { font-size: 20px; }
+      .quote-grid { grid-template-columns: 1fr; }
+      .quote { padding: 24px; }
+      .quote-text { font-size: 17px; }
+      .contact { padding: 64px 20px; }
+      .contact-title { font-size: 46px; margin-bottom: 32px; }
+      .contact-socials { gap: 20px; padding-top: 24px; }
+      footer.site { padding: 24px 20px; gap: 10px; }
+      .btn { padding: 12px 20px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top">
+    <a href="#top" class="brand"><span class="mark">◆</span><span>MSA</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <span class="status-dot"></span>
+      <span class="status-text">Open to work</span>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀</button>
+      <a href="assets/MSA-Resume.pdf" download class="resume-btn">Résumé ↓</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-left">
+      <div class="eyebrow-row">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow">Sr. QA Engineer · Sydney, AU · SmartBear Certified</span>
+      </div>
+      <h1 class="title">
+        I break software<br />
+        <em>so your users</em><br />
+        don't have to.
+      </h1>
+      <p class="dek">
+        Sr. Quality Assurance Engineer at Tensis — driving QA strategy for AI-powered automation products. Previously built the TestComplete framework behind PenCS Practice Cloud, used across Australia's Private Health Network.
+      </p>
+      <div class="metrics">
+        <div><div class="metric-num">40<span class="suffix">%</span></div><div class="metric-label">Manual effort reduced at PenCS</div></div>
+        <div><div class="metric-num">400<span class="suffix">+</span></div><div class="metric-label">Postman API tests across multi-env at Tensis</div></div>
+        <div><div class="metric-num">8</div><div class="metric-label">Professional certifications</div></div>
+        <div><div class="metric-num">5<span class="suffix">yr</span></div><div class="metric-label">In QA &amp; automation</div></div>
+      </div>
+      <div class="cta-row">
+        <a href="case-study-tensis.html" class="btn btn-primary">View case study →</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <svg viewBox="0 0 400 500">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2" />
+          </linearGradient>
+          <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#ec4899" stop-opacity="0.7" />
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.3" />
+          </linearGradient>
+          <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1" fill="#8b5cf6" opacity="0.35" />
+          </pattern>
+        </defs>
+        <circle cx="220" cy="220" r="170" fill="url(#g1)" />
+        <rect x="60" y="280" width="180" height="180" fill="url(#dots)" />
+        <path d="M 80 100 Q 200 20, 340 140" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.6" />
+        <ellipse cx="310" cy="380" rx="80" ry="50" fill="url(#g2)" opacity="0.8" />
+        <line x1="0" y1="460" x2="400" y2="460" stroke="currentColor" stroke-opacity="0.25" />
+        <line x1="0" y1="40" x2="400" y2="40" stroke="currentColor" stroke-opacity="0.25" />
+        <text x="20" y="490" font-family="ui-monospace,monospace" font-size="11" fill="currentColor" fill-opacity="0.5">FIG.01 — QUALITY</text>
+        <text x="340" y="490" font-family="ui-monospace,monospace" font-size="11" fill="currentColor" fill-opacity="0.5">2026</text>
+        <circle cx="320" cy="140" r="8" fill="#8b5cf6" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <!-- duplicate track for seamless loop -->
+      <span>TestComplete <span class="dot">◆</span></span>
+      <span>Playwright + MCP <span class="dot">◆</span></span>
+      <span>Selenium <span class="dot">◆</span></span>
+      <span>Cypress <span class="dot">◆</span></span>
+      <span>Katalon <span class="dot">◆</span></span>
+      <span>SmartBear Certified <span class="dot">◆</span></span>
+      <span>OWASP <span class="dot">◆</span></span>
+      <span>Postman (400+ API tests) <span class="dot">◆</span></span>
+      <span>JMeter <span class="dot">◆</span></span>
+      <span>Bamboo &amp; Jenkins <span class="dot">◆</span></span>
+      <span>Claude Code Pro <span class="dot">◆</span></span>
+      <span>BDD · DDD · KDD <span class="dot">◆</span></span>
+      <span>CI/CD <span class="dot">◆</span></span>
+      <!-- duplicate -->
+      <span>TestComplete <span class="dot">◆</span></span>
+      <span>Playwright + MCP <span class="dot">◆</span></span>
+      <span>Selenium <span class="dot">◆</span></span>
+      <span>Cypress <span class="dot">◆</span></span>
+      <span>Katalon <span class="dot">◆</span></span>
+      <span>SmartBear Certified <span class="dot">◆</span></span>
+      <span>OWASP <span class="dot">◆</span></span>
+      <span>Postman (400+ API tests) <span class="dot">◆</span></span>
+      <span>JMeter <span class="dot">◆</span></span>
+      <span>Bamboo &amp; Jenkins <span class="dot">◆</span></span>
+      <span>Claude Code Pro <span class="dot">◆</span></span>
+      <span>BDD · DDD · KDD <span class="dot">◆</span></span>
+      <span>CI/CD <span class="dot">◆</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="sect" id="about">
+    <div class="sect-num">01 — About</div>
+    <div class="about-grid">
+      <h2 class="sect-title">Quality, security,<br />and <em>CI/CD discipline</em> —<br />end to end.</h2>
+      <div>
+        <p class="para">At <strong>Tensis</strong>, I drive QA strategy and roadmap for AI-powered automation products — rigorous metrics, OWASP security assessments, performance &amp; load testing, and clear defect-tracking aligned to regulatory compliance. I've automated 400+ API tests in Postman across multiple environments, and I'm currently building web automation on <strong>Playwright + MCP server + Claude Code Pro</strong>.</p>
+        <p class="para">Before Tensis, I engineered a TestComplete framework for <strong>PenCS Practice Cloud</strong> — used across Australia's Private Health Network — cutting manual effort by 40%. SmartBear Certified across Desktop, Web, QA Architect, and DevOps.</p>
+        <div class="tags">
+          <span class="tag">OWASP Security Testing</span>
+          <span class="tag">Playwright + MCP</span>
+          <span class="tag">Postman API Automation</span>
+          <span class="tag">CI/CD Pipelines</span>
+          <span class="tag">Healthcare Informatics</span>
+          <span class="tag">BDD · DDD · KDD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="sect" id="work">
+    <div class="sect-head">
+      <div class="sect-num" style="margin-bottom:0">02 — Selected Work</div>
+    </div>
+
+    <div class="case-grid">
+      <a href="case-study.html" class="case-card">
+        <div class="case-art" style="background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.02));">
+          <svg viewBox="0 0 300 200" style="width:100%;height:100%">
+            <g stroke="#8b5cf6" stroke-width="1.5" fill="none">
+              <line x1="30" y1="30" x2="30" y2="170" opacity="0.3"/>
+              <line x1="65" y1="30" x2="65" y2="155" opacity="0.38"/>
+              <line x1="100" y1="30" x2="100" y2="140" opacity="0.46"/>
+              <line x1="135" y1="30" x2="135" y2="125" opacity="0.54"/>
+              <line x1="170" y1="30" x2="170" y2="110" opacity="0.62"/>
+              <line x1="205" y1="30" x2="205" y2="95" opacity="0.7"/>
+              <line x1="240" y1="30" x2="240" y2="80" opacity="0.78"/>
+              <line x1="275" y1="30" x2="275" y2="65" opacity="0.86"/>
+            </g>
+            <rect x="30" y="150" width="240" height="3" fill="#8b5cf6"/>
+            <circle cx="240" cy="60" r="18" fill="#8b5cf6" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">Test Automation · Healthcare</div>
+          <div class="case-title">Cutting manual testing 40% on Practice Cloud</div>
+          <div class="case-foot">
+            <span class="case-meta">PenCS · 2024</span>
+            <span class="case-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="case-study-tensis.html" class="case-card">
+        <div class="case-art" style="background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(236,72,153,0.02));">
+          <svg viewBox="0 0 300 200" style="width:100%;height:100%">
+            <path d="M 40 100 L 100 60 L 160 120 L 220 50 L 260 110" stroke="#ec4899" stroke-width="2" fill="none"/>
+            <path d="M 40 120 L 100 80 L 160 140 L 220 70 L 260 130" stroke="#ec4899" stroke-width="2" stroke-dasharray="4 4" fill="none" opacity="0.5"/>
+            <circle cx="40" cy="100" r="4" fill="#ec4899"/>
+            <circle cx="100" cy="60" r="4" fill="#ec4899"/>
+            <circle cx="160" cy="120" r="4" fill="#ec4899"/>
+            <circle cx="220" cy="50" r="4" fill="#ec4899"/>
+            <circle cx="260" cy="110" r="4" fill="#ec4899"/>
+          </svg>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">AI · Security · QA Strategy</div>
+          <div class="case-title">Building the QA roadmap for AI-powered products</div>
+          <div class="case-foot">
+            <span class="case-meta">Tensis · 2025</span>
+            <span class="case-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="case-card" style="cursor:default">
+        <div class="case-art" style="background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(20,184,166,0.02));">
+          <svg viewBox="0 0 300 200" style="width:100%;height:100%">
+            <rect x="40" y="40" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.4"/>
+            <rect x="85" y="40" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.55"/>
+            <rect x="130" y="40" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.7"/>
+            <rect x="175" y="40" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.55"/>
+            <rect x="220" y="40" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.4"/>
+            <rect x="40" y="80" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.3"/>
+            <rect x="85" y="80" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.7"/>
+            <rect x="130" y="80" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.85"/>
+            <rect x="175" y="80" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.7"/>
+            <rect x="220" y="80" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.5"/>
+            <rect x="40" y="120" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.2"/>
+            <rect x="85" y="120" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.4"/>
+            <rect x="130" y="120" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.55"/>
+            <rect x="175" y="120" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.4"/>
+            <rect x="220" y="120" width="30" height="28" rx="4" fill="#14b8a6" opacity="0.2"/>
+          </svg>
+        </div>
+        <div class="case-body">
+          <div class="case-tag">CI/CD · Framework Design</div>
+          <div class="case-title">Scalable BDD harness + Bamboo pipelines</div>
+          <div class="case-foot">
+            <span class="case-meta">WeDaedalus · 2022–23</span>
+            <span class="case-arrow" style="opacity:0.3">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section class="sect" id="certs">
+    <div class="sect-num">03 — Credentials</div>
+    <h2 class="sect-title-sm">SmartBear Certified. And then some.</h2>
+    <div class="cert-grid">
+      <div class="cert-card cert-featured">
+        <div class="cert-ribbon">★</div>
+        <div class="cert-issuer">SmartBear</div>
+        <div class="cert-name">TestComplete QA Architect</div>
+        <div class="cert-year">Jul 2024</div>
+      </div>
+      <div class="cert-card cert-featured">
+        <div class="cert-ribbon">★</div>
+        <div class="cert-issuer">SmartBear</div>
+        <div class="cert-name">TestComplete — Web Automation Engineer</div>
+        <div class="cert-year">Jul 2024</div>
+      </div>
+      <div class="cert-card cert-featured">
+        <div class="cert-ribbon">★</div>
+        <div class="cert-issuer">SmartBear</div>
+        <div class="cert-name">TestComplete — Desktop Automation Engineer</div>
+        <div class="cert-year">Jul 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">SmartBear</div>
+        <div class="cert-name">TestComplete — DevOps Engineer</div>
+        <div class="cert-year">Sep 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">SmartBear</div>
+        <div class="cert-name">TestComplete Certification</div>
+        <div class="cert-year">Jul 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">Databricks</div>
+        <div class="cert-name">Generative AI Fundamentals</div>
+        <div class="cert-year">Jan 2025</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">LinkedIn</div>
+        <div class="cert-name">Bitbucket Pipelines for CI/CD</div>
+        <div class="cert-year">Sep 2024</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-issuer">LinkedIn</div>
+        <div class="cert-name">Agile Testing</div>
+        <div class="cert-year">—</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="sect">
+    <div class="sect-num">04 — Experience</div>
+
+    <div class="exp-row">
+      <div class="exp-year">Oct 2024 — Now</div>
+      <div>
+        <div class="exp-role">Sr. Quality Assurance Engineer</div>
+        <div class="exp-co"><span class="exp-co-name">Tensis</span><span class="sep">·</span><span class="loc">Ultimo, Sydney</span></div>
+        <div class="exp-blurb">Driving QA strategy and roadmap for AI-powered automation products. Automated 400+ API tests in Postman across multiple environments. Currently building web automation on Playwright + MCP server + Claude Code Pro. OWASP security, performance &amp; load testing, and CI/CD-integrated test automation aligned to regulatory compliance.</div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Nov 2023 — Oct 2024</div>
+      <div>
+        <div class="exp-role">Quality Assurance Engineer</div>
+        <div class="exp-co"><span class="exp-co-name">PenCS</span><span class="sep">·</span><span class="loc">Leichhardt, Sydney</span></div>
+        <div class="exp-blurb">Built a TestComplete automation framework for Practice Cloud, used across Australia's Private Health Network. Automated 400+ filters and data validations — cut manual testing effort by 40%.</div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Jul 2022 — Oct 2023</div>
+      <div>
+        <div class="exp-role">Test Automation Engineer (Mid-Level)</div>
+        <div class="exp-co"><span class="exp-co-name">WeDaedalus LLC</span><span class="sep">·</span><span class="loc">Michigan, USA</span></div>
+        <div class="exp-blurb">Owned end-to-end automation strategy. Designed modular, scalable frameworks with DDD, KDD and BDD. Integrated automated tests into Bamboo CI/CD for rapid feedback on every commit.</div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Aug 2021 — Jun 2022</div>
+      <div>
+        <div class="exp-role">Test Automation Engineer</div>
+        <div class="exp-co"><span class="exp-co-name">WeDaedalus LLC</span><span class="sep">·</span><span class="loc">Michigan, USA</span></div>
+        <div class="exp-blurb">Built automation frameworks with Selenium WebDriver, Katalon Studio, and Cypress. Integrated into Jenkins CI/CD. Mentored junior automation engineers.</div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Mar 2021 — Jul 2021</div>
+      <div>
+        <div class="exp-role">Jr. QA Automation Engineer</div>
+        <div class="exp-co"><span class="exp-co-name">WeDaedalus LLC</span><span class="sep">·</span><span class="loc">Dhaka, BD</span></div>
+        <div class="exp-blurb">System, state-transition, regression, sanity, and smoke testing. Cypress + Katalon automation. Jenkins CI/CD pipeline work. Agile Scrum rituals.</div>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-year">Sep 2020 — Dec 2020</div>
+      <div>
+        <div class="exp-role">Intern QA Engineer</div>
+        <div class="exp-co"><span class="exp-co-name">Olivine Limited</span><span class="sep">·</span><span class="loc">Dhaka, BD</span></div>
+        <div class="exp-blurb">Manual testing on Saint Martin, Prottoyon web apps and Joy Bangla, Circuit House Management, Barta mobile apps. SRS &amp; SDD documentation.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="sect">
+    <div class="sect-num">05 — Education</div>
+    <div class="edu-row">
+      <div class="edu-year">2017 — 2020</div>
+      <div>
+        <div class="edu-school">American International University–Bangladesh</div>
+        <div class="edu-degree">BSc, Computer Science and Engineering — CGPA 3.77 / 4.00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sect">
+    <div class="sect-num">06 — Recommendations</div>
+    <div class="quote-grid">
+      <figure class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text">Sheikh is hands-down one of the most reliable QA engineers I've partnered with. When our strategy shifted toward API enablement, he built out the automations to ensure our public APIs were enterprise-ready. As we ventured into AI products, he navigated the ambiguity and massive test suites required for a seamless UX.</blockquote>
+        <figcaption class="quote-cap">
+          <div class="quote-avatar">TL</div>
+          <div>
+            <div class="quote-name">Tenzin Lama</div>
+            <div class="quote-role">Product Manager, Tensis</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text">I wholeheartedly recommend Sheikh for his exceptional expertise as an automation tester. Proficient in designing and executing automated test scripts, strategic in problem-solving, and a collaborative team player with a proactive attitude.</blockquote>
+        <figcaption class="quote-cap">
+          <div class="quote-avatar">NJ</div>
+          <div>
+            <div class="quote-name">Nuja Joshi</div>
+            <div class="quote-role">Colleague, PenCS</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text">4 years at WeDaedalus as a Test Automation Engineer. Dependable, flexible, hardworking — a highly skilled QA with a proven track record. Results-oriented and always willing to go the extra mile.</blockquote>
+        <figcaption class="quote-cap">
+          <div class="quote-avatar">AH</div>
+          <div>
+            <div class="quote-name">Ashraf Hussain</div>
+            <div class="quote-role">Colleague, WeDaedalus LLC</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="quote">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text">Sheikh is a meticulous QA engineer with sharp technical skills and a calm, collaborative style. He brings structure to complex test problems and consistently delivers quality work — the kind of engineer every team wants on their side.</blockquote>
+        <figcaption class="quote-cap">
+          <div class="quote-avatar">SR</div>
+          <div>
+            <div class="quote-name">Sydur Rahman</div>
+            <div class="quote-role">Colleague</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="sect-num">07 — Let's talk</div>
+    <h2 class="contact-title">Got a product that <em>needs</em><br />to ship clean?</h2>
+    <div class="contact-ctas">
+      <a href="mailto:sheikhtashan@gmail.com" class="btn btn-primary">sheikhtashan@gmail.com ↗</a>
+      <a href="tel:+61434239738" class="btn btn-ghost">+61 (434) 239-738</a>
+    </div>
+    <div class="contact-socials">
+      <a href="https://www.linkedin.com/in/md-sheikh-abdullah-a55a33193" target="_blank" rel="noopener" class="social-link">LinkedIn →</a>
+      <a href="assets/MSA-Resume.pdf" download class="social-link">Résumé (PDF) ↓</a>
+    </div>
+  </section>
+
+  <footer class="site">
+    <span>© 2026 MD Sheikh Abdullah</span>
+    <span class="dot">◆</span>
+    <span>Crafted in Sydney</span>
+  </footer>
+
+  <script>
+    // Theme toggle with persistence
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    const saved = localStorage.getItem('msa-theme');
+    if (saved) { root.setAttribute('data-theme', saved); }
+    const updateBtn = () => btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀' : '☾';
+    updateBtn();
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('msa-theme', next);
+      updateBtn();
+    });
+  </script>
+
+  <template id="__bundler_thumbnail">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="200" fill="#0e0b14"/>
+      <circle cx="100" cy="95" r="42" fill="#8b5cf6" opacity="0.9"/>
+      <text x="100" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-style="italic" fill="#f4f0ea">MSA</text>
+      <text x="100" y="160" text-anchor="middle" font-family="monospace" font-size="10" fill="#f4f0ea" opacity="0.6" letter-spacing="2">PORTFOLIO</text>
+    </svg>
+  </template>
+</body>
+</html>
