@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Study · Building the QA roadmap for AI-powered products — MSA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0b14; --surface: #17121f; --text: #f4f0ea;
+      --muted: rgba(244,240,234,0.6); --faint: rgba(244,240,234,0.1);
+      --accent: #ec4899; --accent-soft: rgba(236,72,153,0.18); --green: #4ade80;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+    html.light { --bg: #faf8f5; --surface: #fff; --text: #14101a; --muted: rgba(20,16,26,0.55); --faint: rgba(20,16,26,0.08); }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; border-bottom: 1px solid var(--faint); position: sticky; top: 0; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); z-index: 10; }
+    .brand { display: flex; gap: 8px; align-items: center; font-family: var(--serif); font-size: 22px; }
+    .brand .mark { color: var(--accent); }
+    .back { font-size: 13px; color: var(--muted); text-decoration: none; }
+    .back:hover { color: var(--accent); }
+    .theme-toggle { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--faint); background: transparent; color: var(--text); cursor: pointer; font-size: 14px; }
+    header.hero { padding: 96px 0 48px; }
+    .eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+    .eyebrow-line { width: 40px; height: 1px; background: var(--accent); }
+    .eyebrow-text { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+    h1.title { font-family: var(--serif); font-size: 72px; line-height: 1.02; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 32px; }
+    h1 em { font-style: italic; color: var(--accent); }
+    .meta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 32px 0; border-top: 1px solid var(--faint); border-bottom: 1px solid var(--faint); margin-top: 48px; }
+    .meta-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .meta-val { font-size: 14px; color: var(--text); }
+    .impact { margin: 72px 0; padding: 48px; background: linear-gradient(135deg, var(--accent-soft), transparent); border: 1px solid var(--faint); border-radius: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .impact-num { font-family: var(--serif); font-size: 60px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; color: var(--accent); margin-bottom: 12px; }
+    .impact-label { font-size: 13px; color: var(--muted); line-height: 1.5; max-width: 220px; }
+    section { padding: 56px 0; border-top: 1px solid var(--faint); }
+    .section-number { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+    h2 { font-family: var(--serif); font-size: 44px; line-height: 1.1; font-weight: 400; letter-spacing: -0.015em; margin-bottom: 28px; }
+    p.para { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    p.para strong { color: var(--text); font-weight: 500; }
+    ul.list { list-style: none; padding: 0; margin: 24px 0; }
+    ul.list li { padding: 14px 0 14px 28px; border-top: 1px solid var(--faint); position: relative; font-size: 16px; color: var(--muted); }
+    ul.list li:last-child { border-bottom: 1px solid var(--faint); }
+    ul.list li::before { content: '→'; position: absolute; left: 0; top: 14px; color: var(--accent); font-family: var(--mono); }
+    ul.list li strong { color: var(--text); font-weight: 500; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    .pillar { padding: 24px; background: var(--surface); border: 1px solid var(--faint); border-radius: 14px; }
+    .pillar-tag { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+    .pillar-title { font-family: var(--serif); font-size: 22px; line-height: 1.2; margin-bottom: 12px; }
+    .pillar-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .pull { margin: 48px 0; padding: 32px 0; border-top: 1px solid var(--faint); border-bottom: 1px solid var(--faint); font-family: var(--serif); font-style: italic; font-size: 24px; line-height: 1.35; color: var(--text); }
+    .pull .mark { color: var(--accent); font-size: 52px; line-height: 0; vertical-align: -16px; margin-right: 8px; }
+    footer.cta { padding: 96px 0 120px; border-top: 1px solid var(--faint); }
+    footer.cta h3 { font-family: var(--serif); font-size: 60px; line-height: 1.05; font-weight: 400; letter-spacing: -0.02em; margin-bottom: 32px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn { padding: 14px 26px; border-radius: 999px; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+    .btn-ghost { border: 1px solid var(--faint); color: var(--text); }
+    .page-footer { padding: 28px 48px; display: flex; gap: 16px; border-top: 1px solid var(--faint); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .page-footer .dot { color: var(--accent); }
+
+    @media (max-width: 760px) {
+      nav { padding: 16px 20px; }
+      .wrap { padding: 0 20px; }
+      header.hero { padding: 48px 0 32px; }
+      h1.title { font-size: 44px; }
+      .meta-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+      .impact { padding: 28px; grid-template-columns: 1fr; gap: 24px; }
+      .impact-num { font-size: 48px; }
+      section { padding: 40px 0; }
+      h2 { font-size: 30px; }
+      .pillars { grid-template-columns: 1fr; }
+      .pull { font-size: 18px; }
+      footer.cta h3 { font-size: 36px; }
+      .page-footer { padding: 20px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand"><span class="mark">◆</span><span>MSA</span></div>
+    <a href="index.html#work" class="back">← All work</a>
+    <button class="theme-toggle" onclick="document.documentElement.classList.toggle('light'); this.textContent = document.documentElement.classList.contains('light') ? '☾' : '☀';">☀</button>
+  </nav>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">Case Study · 002 · AI · Security · QA Strategy</span>
+      </div>
+      <h1 class="title">
+        Building the QA roadmap for<br />
+        <em>AI-powered</em> products.
+      </h1>
+      <p class="para" style="max-width: 640px; font-size: 19px;">
+        How I set up end-to-end quality standards at Tensis — metrics, defect tracking,
+        security assessments, and automation coverage — for a team shipping AI-driven
+        automation products with real regulatory exposure.
+      </p>
+
+      <div class="meta-grid">
+        <div><div class="meta-label">Client</div><div class="meta-val">Tensis</div></div>
+        <div><div class="meta-label">Role</div><div class="meta-val">Sr. QA Engineer</div></div>
+        <div><div class="meta-label">Duration</div><div class="meta-val">Oct 2024 — Ongoing</div></div>
+        <div><div class="meta-label">Stack</div><div class="meta-val">Playwright · Postman · MCP</div></div>
+      </div>
+    </header>
+
+    <div class="impact">
+      <div><div class="impact-num">400+</div><div class="impact-label">Postman API tests across multiple environments</div></div>
+      <div><div class="impact-num">AI</div><div class="impact-label">Web automation on Playwright + MCP + Claude Code Pro</div></div>
+      <div><div class="impact-num">0→1</div><div class="impact-label">Defect tracking, KPIs, and compliance workflow built from scratch</div></div>
+    </div>
+
+    <section>
+      <div class="section-number">01 — Context</div>
+      <h2>Quality for AI is different.</h2>
+      <p class="para">
+        Tensis ships <strong>AI-powered automation products</strong> used inside
+        regulated workflows. That means the QA bar isn't just "does the feature work" —
+        it's data integrity, security posture, performance at scale, and audit-ready
+        traceability. All at once.
+      </p>
+      <p class="para">
+        When I joined, the team had strong engineering but no formal QA strategy.
+        My job: design it, own it, and scale it across a rapidly-shipping product roadmap.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-number">02 — Strategy</div>
+      <h2>Four pillars.</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-tag">01 · Standards</div>
+          <div class="pillar-title">Metrics & KPIs</div>
+          <div class="pillar-text">Rigorous quality standards grounded in data integrity, security, accuracy, and regulatory compliance — measurable and visible.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-tag">02 · Risk</div>
+          <div class="pillar-title">Proactive assessment</div>
+          <div class="pillar-text">OWASP-driven security testing plus continuous risk identification and mitigation across every release path.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-tag">03 · Automation</div>
+          <div class="pillar-title">Coverage at scale</div>
+          <div class="pillar-text">Test automation framework expansion for data-driven scenarios — maximising reliable coverage without slowing releases.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-tag">04 · Resilience</div>
+          <div class="pillar-title">Performance & load</div>
+          <div class="pillar-text">Performance, load, and security testing for scalability and responsiveness, especially on critical data paths.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-number">03 — Execution</div>
+      <h2>From strategy to shipping.</h2>
+      <ul class="list">
+        <li><strong>Defect tracking overhauled.</strong> Clear triage, SLAs, owner accountability, and transparent resolution reporting.</li>
+        <li><strong>400+ API tests in Postman.</strong> Full multi-environment coverage (dev, staging, prod) for public APIs — reliable, scalable, enterprise-ready.</li>
+        <li><strong>Playwright + MCP + Claude Code Pro.</strong> Currently building the next-gen web automation stack, pairing Playwright with the Model Context Protocol and Claude Code Pro for AI-assisted test authoring.</li>
+        <li><strong>AI test suites.</strong> Navigated the ambiguity of testing AI products, designing large test suites that cover the UX surface around non-deterministic outputs.</li>
+        <li><strong>Third-party integration testing.</strong> Thorough coverage for every downstream integration — the blast radius of a bad integration is the whole product.</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="pull">
+        <span class="mark">"</span>
+        Hands-down one of the most reliable QA engineers I've partnered with. As we ventured
+        into AI products, Sheikh navigated the ambiguity and massive test suites required
+        for a seamless user experience.
+        <div style="font-size: 13px; font-family: var(--mono); color: var(--muted); margin-top: 20px; font-style: normal;">— Tenzin Lama, Product Manager at Tensis</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-number">04 — Takeaways</div>
+      <h2>What AI QA demands.</h2>
+      <p class="para">
+        <strong>Ambiguity is the work.</strong> AI outputs aren't deterministic, so the
+        tests can't be either. You test the <em>envelope</em> — guardrails, fallbacks, the
+        UX around the answer — not the answer itself.
+      </p>
+      <p class="para">
+        <strong>Security is table stakes.</strong> OWASP assessments aren't a phase —
+        they're a continuous discipline baked into every release.
+      </p>
+      <p class="para">
+        <strong>Data integrity is the product.</strong> When your customers run their
+        business on your output, every row has to be right, every time, and you have to
+        prove it.
+      </p>
+    </section>
+  </div>
+
+  <footer class="cta">
+    <div class="wrap">
+      <h3>Shipping AI? Let's<br />talk QA strategy.</h3>
+      <div class="cta-row">
+        <a href="/cdn-cgi/l/email-protection#01726964686a6975607269606f41666c60686d2f626e6c" class="btn btn-primary">Get in touch ↗</a>
+        <a href="index.html#work" class="btn btn-ghost">See more work</a>
+        <a href="assets/MSA-Resume.pdf" download class="btn btn-ghost">Résumé ↓</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="page-footer">
+    <span>© 2026 MD Sheikh Abdullah</span>
+    <span class="dot">◆</span>
+    <span>Crafted in Sydney</span>
+  </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
